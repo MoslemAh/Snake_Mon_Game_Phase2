@@ -2,7 +2,7 @@
 
 #include "UI_Info.h"
 #include "DEFS.h"
-
+#include "Snake.h"
 #include "Input.h"
 #include "Output.h"
 #include "CellPosition.h"
@@ -72,7 +72,8 @@ public:
 	
 	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player
 	Ladder * GetNextLadder(const CellPosition & position);  // Gets a Pointer to the first Ladder after the passed "position"
-	
+	Snake* GetNextSnake(const CellPosition& position);
+
 
 	// ========= User Interface Functions =========
 
