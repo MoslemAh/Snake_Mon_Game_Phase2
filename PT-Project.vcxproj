@@ -131,6 +131,7 @@
     <ClCompile Include="Action.cpp" />
     <ClCompile Include="AddCardAction.cpp" />
     <ClCompile Include="AddLadderAction.cpp" />
+    <ClCompile Include="AddSnakeAction.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="CardEight.cpp" />
@@ -138,9 +139,11 @@
     <ClCompile Include="CardFour.cpp" />
     <ClCompile Include="CardNine.cpp" />
     <ClCompile Include="CardOne.cpp" />
+
     <ClCompile Include="CardSeven.cpp" />
     <ClCompile Include="CardSix.cpp" />
     <ClCompile Include="CardThree.cpp" />
+
     <ClCompile Include="CardTwo.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="CellPosition.cpp" />
@@ -183,16 +186,22 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="InputDiceValueAction.cpp" />
     <ClCompile Include="Ladder.cpp" />
+    <ClCompile Include="NewGameAction.cpp" />
     <ClCompile Include="Output.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="RollDiceAction.cpp" />
+    <ClCompile Include="Snake.cpp" />
+    <ClCompile Include="SwitchToDesignMode.cpp" />
+    <ClCompile Include="SwitchToPlayMode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
     <ClInclude Include="AddCardAction.h" />
     <ClInclude Include="AddLadderAction.h" />
+    <ClInclude Include="AddSnakeAction.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="CardEight.h" />
@@ -200,9 +209,11 @@
     <ClInclude Include="CardFour.h" />
     <ClInclude Include="CardNine.h" />
     <ClInclude Include="CardOne.h" />
+
     <ClInclude Include="CardSeven.h" />
     <ClInclude Include="CardSix.h" />
     <ClInclude Include="CardThree.h" />
+
     <ClInclude Include="CardTwo.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="CellPosition.h" />
@@ -230,10 +241,15 @@
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="InputDiceValueAction.h" />
     <ClInclude Include="Ladder.h" />
+    <ClInclude Include="NewGameAction.h" />
     <ClInclude Include="Output.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RollDiceAction.h" />
+    <ClInclude Include="Snake.h" />
+    <ClInclude Include="SwitchToDesignMode.h" />
+    <ClInclude Include="SwitchToPlayMode.h" />
     <ClInclude Include="UI_Info.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

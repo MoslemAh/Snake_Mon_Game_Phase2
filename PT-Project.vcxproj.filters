@@ -184,6 +184,7 @@
     <ClCompile Include="Output.cpp">
       <Filter>GUIClasses</Filter>
     </ClCompile>
+
     <ClCompile Include="CardTwo.cpp">
       <Filter>GameObjects\Cards</Filter>
     </ClCompile>
@@ -207,6 +208,28 @@
     </ClCompile>
     <ClCompile Include="CardNine.cpp">
       <Filter>GameObjects\Cards</Filter>
+
+    <ClCompile Include="AddSnakeAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Snake.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="SwitchToDesignMode.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="SwitchToPlayMode.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="CardTwo.cpp">
+      <Filter>GameObjects\Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="InputDiceValueAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGameAction.cpp">
+      <Filter>Actions</Filter>
+
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -319,6 +342,7 @@
       <Filter>GUIClasses</Filter>
     </ClInclude>
     <ClInclude Include="DEFS.h" />
+
     <ClInclude Include="CardTwo.h">
       <Filter>GameObjects\Cards</Filter>
     </ClInclude>
@@ -342,6 +366,28 @@
     </ClInclude>
     <ClInclude Include="CardNine.h">
       <Filter>GameObjects\Cards</Filter>
+
+    <ClInclude Include="AddSnakeAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Snake.h">
+      <Filter>GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="SwitchToDesignMode.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="SwitchToPlayMode.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="CardTwo.h">
+      <Filter>GameObjects\Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="InputDiceValueAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGameAction.h">
+      <Filter>Actions</Filter>
+
     </ClInclude>
   </ItemGroup>
 </Project>
