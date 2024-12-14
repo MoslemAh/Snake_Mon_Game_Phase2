@@ -36,6 +36,7 @@ public:
 	// ====== Drawing Functions ======
 
 	void Draw(Output* pOut) const;			// Draws the Player's Circle on its current cell
+	int getJustRolledDiceNumber() const;
 
 	void ClearDrawing(Output* pOut) const;	// Clears the Player's Circle from its current cell
 
