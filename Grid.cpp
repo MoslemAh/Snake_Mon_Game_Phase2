@@ -1,5 +1,7 @@
-#include "Grid.h"
+#pragma once
 
+#include "Grid.h"
+#include "Snake.h"
 #include "Cell.h"
 #include "GameObject.h"
 #include "Ladder.h"
@@ -144,6 +146,27 @@ Ladder * Grid::GetNextLadder(const CellPosition & position)
 		{
 			///TODO: Check if CellList[i][j] has a ladder, if yes return it
 			// if (CellList[i][j]->HasLadder()) return CellList[i][j]->GetGameObject();
+
+		}
+		startH = 0; // because in the next above rows, we will search from the first left cell (hCell = 0) to the right
+	}
+	return NULL; // not found
+}
+
+Snake* GetNextSnake(const CellPosition& position) {
+	int startH = position.HCell(); // represents the start hCell in the current row to search for the ladder in
+	for (int i = position.VCell(); i >= 0; i--) // searching from position.vCell and ABOVE
+	{
+		for (int j = startH; j < NumHorizontalCells; j++) // searching from startH and RIGHT
+		{
+
+
+			///TODO: Check if CellList[i][j] has a snake, if yes return it
+			Snake* snake = dynamic_cast<Snake*>(Grid::CellList[i][j]);
+
+			if (snake != NULL) {
+				return snake;
+			}
 
 		}
 		startH = 0; // because in the next above rows, we will search from the first left cell (hCell = 0) to the right

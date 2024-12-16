@@ -2,7 +2,7 @@
 
 #include "UI_Info.h"
 #include "DEFS.h"
-
+#include "Snake.h"
 #include "Input.h"
 #include "Output.h"
 #include <fstream>
