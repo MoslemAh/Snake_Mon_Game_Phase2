@@ -19,11 +19,10 @@ void SwitchToDesignMode::Execute()
 	Output* pOut = pGrid->GetOutput();
 
 	// Call for End Game
-	pGrid->SetEndGame(true);
+	pGrid->ResetPlayersInfo();
 
-	// Create Toolbar ??
+	// Create Toolbar
 	pOut->CreateDesignModeToolBar();
-	pGrid->UpdateInterface();
 }
 
 SwitchToDesignMode::~SwitchToDesignMode()

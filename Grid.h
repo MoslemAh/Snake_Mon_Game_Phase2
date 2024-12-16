@@ -5,12 +5,15 @@
 
 #include "Input.h"
 #include "Output.h"
+#include <fstream>
+#include <iomanip>
 #include "CellPosition.h"
 
 // forward declarations (the includes are in the cpp)
 class Cell;
 class GameObject;
 class Ladder;
+class Snake;
 class Card;
 class Player;
 
@@ -48,8 +51,6 @@ public:
 	                                                                          // Clears the player's circle from the previous cell
 	    																	  // and  Draws it in the new cell
 
-	bool IsOverlapping(GameObject* newObj) const;
-
 	// ========= Setters and Getters Functions =========
 
 	Input * GetInput() const;	// Gets a Pointer to the Input
@@ -64,15 +65,12 @@ public:
 	void ResetCurrPlayerNumber();	 // Resets currPlayerNumber to zero when NewGame Action is called
 	void AdvanceCurrentPlayer();     // Increments the currPlayerNum and if reaches MaxPlayerCount reset to 0 (using %)
 
-	void ResetPlayersInfo();		// Resets Players' info when user startss a new game
-
 	///TODO: add any needed setter/getter "EXCEPT" ANY setters or getters of "CellList" or "PlayerList" (Forbidden for class Responsibilities)
 
 	// ========= Other Getters =========
 	
 	Player * GetCurrentPlayer() const;	// Gets a Pointer to the Current Player
 	Ladder * GetNextLadder(const CellPosition & position);  // Gets a Pointer to the first Ladder after the passed "position"
-	
 
 	// ========= User Interface Functions =========
 
@@ -84,6 +82,16 @@ public:
 
 	void PrintErrorMessage(string msg); // Prints an error message on statusbar, Waits for mouse click then clears statusbar
 									    // We added this function once here because it is used many times by other classes
+
+	// ===================== Additional Functions ===================== //
+	
+	void ResetPlayersInfo();	// Resets Players' info when user starts a new game
+
+	bool IsOverlapping(GameObject* newObj) const;	// Checks if two game objects will overlap
+
+	void SaveAll(ofstream& OutFile, ObjectType Type) const;
+
+	// =============================================================== //
 
 	~Grid(); // A destructor for any needed deallcations
 };

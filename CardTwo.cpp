@@ -3,6 +3,7 @@
 CardTwo::CardTwo(const CellPosition& pos) : Card(pos) // set the cell position of the card
 {
 	cardNumber = 2; // set the inherited cardNumber data member with the card number (1 here)
+	walletAmount = 0;
 }
 
 CardTwo::~CardTwo(void)
@@ -24,7 +25,6 @@ void CardTwo::ReadCardParameters(Grid* pGrid)
 	//    Don't forget to first print to a descriptive message to the user like:"New CardTwo: Enter its wallet amount ..."
 	
 	pOut->PrintMessage("New CardTwo: Enter its wallet amount ... ");
-	// pGrid->PrintErrorMessage("New CardTwo: Enter its wallet amount ... "); ??
 
 	walletAmount = pIn->GetInteger(pOut); // Might Need Validation
 

@@ -3,6 +3,7 @@
 #include "Cell.h"
 #include "GameObject.h"
 #include "Ladder.h"
+#include "Snake.h"
 #include "Card.h"
 #include "Player.h"
 
@@ -61,7 +62,7 @@ void Grid::RemoveObjectFromCell(const CellPosition & pos)
 	if (pos.IsValidCell()) // Check if valid position
 	{
 		// Note: you can deallocate the object here before setting the pointer to null if it is needed
-
+		delete CellList[pos.VCell()][pos.HCell()]->GetGameObject();
 		CellList[pos.VCell()][pos.HCell()]->SetGameObject(NULL);
 	}
 }
@@ -77,17 +78,6 @@ void Grid::UpdatePlayerCell(Player * player, const CellPosition & newPosition)
 
 	// Draw the player's circle on the new cell position
 	player->Draw(pOut);
-}
-
-bool Grid::IsOverlapping(GameObject* newObj) const
-{
-	for (int currentRow = 0; currentRow < NumVerticalCells; currentRow++)
-	{
-		for (int currentColumn = 0; currentColumn < NumHorizontalCells; currentColumn++)
-		{
-			// if (newObj->IsOveralpping()) return true;
-		}
-	}
 }
 
 
@@ -135,20 +125,6 @@ void Grid::AdvanceCurrentPlayer()
 	currPlayerNumber = (currPlayerNumber + 1) % MaxPlayerCount; // this generates value from 0 to MaxPlayerCount - 1
 }
 
-void Grid::ResetPlayersInfo()
-{
-
-	for (int playerNum = 0; playerNum < MaxPlayerCount; playerNum++)
-	{
-		// 1- Restart Player's positions to (0,0)
-		PlayerList[playerNum]->SetCell(CellList[0][0]);
-		// 2- Restart Wallet to 0
-		PlayerList[playerNum]->SetWallet(100);
-		// 3- Reset Station's Ownership to None (classes Card[10-13] must be done for this)
-		// 4- Restart turnCount to 0
-		PlayerList[playerNum]->SetTurnCount(0);
-	}
-}
 
 // ========= Other Getters =========
 
@@ -166,10 +142,8 @@ Ladder * Grid::GetNextLadder(const CellPosition & position)
 	{
 		for (int j = startH; j < NumHorizontalCells; j++) // searching from startH and RIGHT
 		{
-
-
 			///TODO: Check if CellList[i][j] has a ladder, if yes return it
-			
+			// if (CellList[i][j]->HasLadder()) return CellList[i][j]->GetGameObject();
 
 		}
 		startH = 0; // because in the next above rows, we will search from the first left cell (hCell = 0) to the right
@@ -237,6 +211,48 @@ void Grid::PrintErrorMessage(string msg)
 	pOut->ClearStatusBar();
 }
 
+
+// ===================== Additional Functions ===================== //
+
+// Problem IsOverlapping
+bool Grid::IsOverlapping(GameObject* newObj) const
+{
+	int currentColumn = (newObj->GetPosition()).HCell();
+	for (int currentRow = 0; currentRow < NumVerticalCells; currentRow++)
+	{
+		if (newObj->IsOverlapping(CellList[currentRow][currentColumn]->GetGameObject()))
+			return true;
+	}
+}
+
+void Grid::ResetPlayersInfo()
+{
+
+	for (int playerNum = 0; playerNum < MaxPlayerCount; playerNum++)
+	{
+		// 1- Restart Player's positions to (0,0)
+		PlayerList[playerNum]->SetCell(CellList[0][0]);
+		// 2- Restart Wallet to 0
+		PlayerList[playerNum]->SetWallet(100);
+		// 3- Reset Station's Ownership to None (classes Card[10-13] must be done for this)
+		// 4- Restart turnCount to 0
+		PlayerList[playerNum]->SetTurnCount(0);
+	}
+}
+
+// Problem SaveAll
+void Grid::SaveAll(ofstream& OutFile, ObjectType Type) const
+{
+	for (int currentRow = 0 ; currentRow < NumVerticalCells ; currentRow++)
+	{
+		for (int currentColumn = 0; currentColumn < NumHorizontalCells; currentColumn++)
+		{
+			(CellList[currentRow][currentColumn]->GetGameObject())->Save(OutFile, Type);
+		}
+	}
+}
+
+// =============================================================== //
 
 Grid::~Grid()
 {

@@ -9,9 +9,11 @@
 class Card : public GameObject
 {
 protected:
+
 	int cardNumber; // an integer representing the card number
 
 public:
+
 	Card(const CellPosition & pos); // A Constructor for card that takes the cell position of it
 
 	void SetCardNumber(int cnum);   // The setter of card number

@@ -14,9 +14,11 @@ void NewGameAction::ReadActionParameters()
 
 void NewGameAction::Execute()
 {
+
 	Grid* pGrid = pManager->GetGrid();
 	pGrid->ResetPlayersInfo();
 	pGrid->UpdateInterface();
+
 }
 
 NewGameAction::~NewGameAction()

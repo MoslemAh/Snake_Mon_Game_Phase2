@@ -41,15 +41,21 @@ void RollDiceAction::Execute()
 	// 3- Get the "current" player from pGrid
 	Player* currentPlayer = pGrid->GetCurrentPlayer();
 	
-	// 4- Move the currentPlayer using function Move of class player
+	// 4- Check if player has reached / passed cell 99 , if true then SetEndGame
+
+	// 5- Move the currentPlayer using function Move of class player
 	currentPlayer->Move(pGrid, diceNumber);
 
 	// Another Method for 3 & 4
 	// pGrid->GetCurrentPlayer()->Move(pGrid, diceNumber);
 
 
-	// 5- Advance the current player number of pGrid
+	// 6- Advance the current player number of pGrid
 	pGrid->AdvanceCurrentPlayer();
+
+	// 7- Check if the player has stepped on an object
+
+	// 8- Apply the object function if true
 
 	// NOTE: the above guidelines are the main ones but not a complete set (You may need to add more steps).
 

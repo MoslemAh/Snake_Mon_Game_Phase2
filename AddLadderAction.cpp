@@ -34,7 +34,7 @@ void AddLadderAction::ReadActionParameters()
 	// 2- Checking if both cells are in the same column
 	// 3- Checking that the endPos is above the startPos
 	
-	if (!startPos.IsValidCell() || endPos.IsValidCell())
+	if (!startPos.IsValidCell() || !endPos.IsValidCell())
 	{
 		pGrid->PrintErrorMessage("Invalid Cells Clicked!");
 		return;
@@ -55,7 +55,6 @@ void AddLadderAction::ReadActionParameters()
 	pOut->ClearStatusBar();
 }
 
-
 // Execute the action
 void AddLadderAction::Execute() 
 {
@@ -67,6 +66,14 @@ void AddLadderAction::Execute()
 	Ladder * pLadder = new Ladder(startPos, endPos);
 
 	Grid * pGrid = pManager->GetGrid(); // We get a pointer to the Grid from the ApplicationManager
+	
+	/*
+	if (pGrid->IsOverlapping(pLadder))
+	{
+		pGrid->PrintErrorMessage("Invalid! Ladders will overlap! Click anywhere to continue ...");
+		return;
+	}
+	*/
 
 	// Add the card object to the GameObject of its Cell:
 	bool added = pGrid->AddObjectToCell(pLadder);

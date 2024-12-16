@@ -24,31 +24,35 @@ void InputDiceValueAction::Execute()
 	if (pGrid->GetEndGame())
 	{
 		pGrid->PrintErrorMessage("Game Has Ended! Click Anywhere to Continue ...");
-		pIn->GetPointClicked(x, y);
-		pOut->ClearStatusBar();
 		return;
 	}
 
+	// Getting dice value from user
 	pOut->PrintMessage("Please enter a dice value between 1-6 : ");
 	int diceNumber = pIn->GetInteger(pOut);
 
 	if (diceNumber < 1 || diceNumber > 6)
 	{
 		pGrid->PrintErrorMessage("Invalid dice number! Click Anywhere to Continue ...");
-		pIn->GetPointClicked(x, y);
-		pOut->ClearStatusBar();
 		return;
 	}
+
 
 
 	// 2- Get the "current" player from pGrid
 	Player* currentPlayer = pGrid->GetCurrentPlayer();
 
-	// 3- Move the currentPlayer using function Move of class player
+	// 3- Check if player has reached / passed cell 99 , if true then SetEndGame
+
+	// 4- Move the currentPlayer using function Move of class player
 	currentPlayer->Move(pGrid, diceNumber);
 
-	// 4- Advance the current player number of pGrid
+	// 5- Advance the current player number of pGrid
 	pGrid->AdvanceCurrentPlayer();
+
+	// 6- Check if the player has stepped on an object
+
+	// 7- Apply the object function if true
 
 	// NOTE: the above guidelines are the main ones but not a complete set (You may need to add more steps).
 	

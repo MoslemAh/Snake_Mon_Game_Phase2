@@ -30,15 +30,21 @@ void AddSnakeAction::ReadActionParameters()
 
 	///TODO: Make the needed validations on the read parameters
 
-	// 1- Checking if both cells are in the same column
-	// 2- Checking that the endPos is below the startPos
+	// 1- Checking if IsValidCell Clicked
+	// 2- Checking if both cells are in the same column
+	// 3- Checking that the endPos is below the startPos
 
+	if (!startPos.IsValidCell() || !endPos.IsValidCell())
+	{
+		pGrid->PrintErrorMessage("Invalid Cells Clicked!");
+		return;
+	}
 	if (startPos.HCell() != endPos.HCell())
 	{
 		pGrid->PrintErrorMessage("End cell and Start cell are not in the same column!");
 		return;
 	}
-	else if (endPos.VCell() > startPos.VCell())
+	else if (endPos.VCell() < startPos.VCell())
 	{
 		pGrid->PrintErrorMessage("End cell cannot be larger than Start cell!");
 		return;
@@ -61,6 +67,14 @@ void AddSnakeAction::Execute()
 	Snake* pSnake = new Snake(startPos, endPos);
 
 	Grid* pGrid = pManager->GetGrid(); // We get a pointer to the Grid from the ApplicationManager
+	
+	/*
+	if (pGrid->IsOverlapping(pSnake))
+	{
+		pGrid->PrintErrorMessage("Invalid! Snakes will overlap! Click anywhere to continue ...");
+		return;
+	}
+	*/
 
 	// Add the card object to the GameObject of its Cell:
 	bool added = pGrid->AddObjectToCell(pSnake);

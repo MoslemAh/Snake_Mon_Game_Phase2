@@ -18,9 +18,10 @@ void SwitchToPlayMode::Execute()
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
 
-	// Create Toolbar ??
+	pGrid->ResetPlayersInfo();
+
+	// Create Toolbar
 	pOut->CreatePlayModeToolBar();
-	pGrid->UpdateInterface();
 }
 
 SwitchToPlayMode::~SwitchToPlayMode()

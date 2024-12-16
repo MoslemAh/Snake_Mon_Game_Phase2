@@ -4,7 +4,10 @@
 #include "AddLadderAction.h"
 #include "AddSnakeAction.h"
 #include "AddCardAction.h"
+#include "SaveGridAction.h"
 #include "RollDiceAction.h"
+#include "InputDiceValueAction.h"
+#include "NewGameAction.h"
 #include "SwitchToPlayMode.h"
 #include "SwitchToDesignMode.h"
 
@@ -63,15 +66,23 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new AddLadderAction(this);
 		break;
 
-	case ADD_SNAKE: // NEW
+	case ADD_SNAKE:
 		pAct = new AddSnakeAction(this);
+		break;
+
+	case ADD_CARD:
+		pAct = new AddCardAction(this);
+		break;
+
+	case SAVE_GRID:
+		pAct = new SaveGridAction(this);
 		break;
 
 	case EXIT:
 		break;
 
 	case TO_PLAY_MODE:
-		pAct = new SwitchToPlayMode(this); // NEW
+		pAct = new SwitchToPlayMode(this);
 		break;
 
 	case ROLL_DICE:
@@ -79,13 +90,24 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new RollDiceAction(this);
 		break;
 
+	case INPUT_DICE_VALUE:
+		pAct = new InputDiceValueAction(this);
+		break;
+
+	case NEW_GAME:
+		pAct = new NewGameAction(this);
+		break;
+
+	case EXIT_TWO:
+		break;
+
 	case TO_DESIGN_MODE:
-		pAct = new SwitchToDesignMode(this); // NEW
+		pAct = new SwitchToDesignMode(this);
 		break;
 
 		
 
-		///TODO: Add a case for EACH Action type in the Design mode or Play mode
+	///TODO: Add a case for EACH Action type in the Design mode or Play mode
 
 
 

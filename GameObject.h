@@ -25,15 +25,18 @@ public:
 	                                                       // (The effect depends on the GameObject type, so virtual)
 	                                                       // For example, applying a ladder is by moving player up, and so on
 
-	virtual bool IsOveralpping(GameObject* newObj) const;
-
 	// The following functions are examples of what should be supported by the GameObject class
 	// They should be overridden by each inherited class
-
 	// Decide the parameters that you should pass to each function	
 	
-	//virtual void Save(ofstream &OutFile) = 0;	// Saves the GameObject parameters to the file
-	//virtual void Load(ifstream &Infile) = 0;	// Loads and Reads the GameObject parameters from the file
+	virtual void Save(ofstream& OutFile, ObjectType Type) {}	// Saves the GameObject parameters to the file
+	// virtual void Load(ifstream& Infile, ObjectType Type) {}		// Loads and Reads the GameObject parameters from the file
+
+	// ===================== Additional Functions ===================== //
+
+	virtual bool IsOverlapping(GameObject* newObj) const { return false; }	// Checks if two game objects will overlap
+
+	// =============================================================== //
 
 	virtual ~GameObject(); // Virtual destructor
 };

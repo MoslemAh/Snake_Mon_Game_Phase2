@@ -15,5 +15,6 @@ public:
 	virtual void Execute();
 
 	virtual ~SwitchToPlayMode();
+
 };
 
